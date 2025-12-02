@@ -161,13 +161,11 @@
         }
 
         .booking-logo {
-            position: absolute;
-            top: 25px;
-            left: 25px;
-            width: 45px;
+            display: block;
+            width: 100px;
             height: auto;
-            z-index: 10;
-            opacity: 0.9;
+            margin: 0 auto 15px;
+            opacity: 1;
         }
         /* White Animated Border Background */
         .booking-container::before {
@@ -197,10 +195,10 @@
         }
         @keyframes floatUp { to { opacity: 1; transform: translateY(0); } }
 
-        .booking-container h3 { 
-            margin-bottom: 35px; 
-            font-size: 2.2rem; font-weight: 800;
-            display: flex; align-items: center; gap: 15px; text-transform: uppercase; letter-spacing: 1px;
+        .booking-container h2 { 
+            margin-bottom: 25px; 
+            font-size: 2rem; font-weight: 800;
+            display: flex; align-items: center; justify-content: center; gap: 10px; text-transform: uppercase; letter-spacing: 1px;
             
             /* Gradient Text */
             background: linear-gradient(90deg, var(--accent-red), var(--accent-gold), #ffffff, var(--accent-gold), var(--accent-red));
@@ -210,7 +208,7 @@
             background-clip: text;
             animation: brandShine 3s linear infinite;
         }
-        .booking-container h3::before { 
+        .booking-container h2::before { 
             content: ''; display: block; width: 8px; height: 40px; 
             background: var(--accent-red); border-radius: 4px; 
             box-shadow: 0 0 15px var(--accent-red);
@@ -775,7 +773,15 @@
             .hamburger { display: block; }
             .hero h1 { font-size: 2rem; }
             .form-grid { grid-template-columns: 1fr; }
-            .booking-container { margin-top: -40px; padding: 20px; }
+            .booking-container { 
+                margin-top: -40px; 
+                padding: 20px; 
+                width: 92%; 
+                margin-left: auto; 
+                margin-right: auto; 
+            }
+            .booking-logo { width: 70px; margin-bottom: 10px; }
+            .booking-container h2 { font-size: 1.5rem; margin-bottom: 20px; }
 
             /* Fleets Section - 2 Columns on Mobile */
             .offers-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -808,6 +814,29 @@
                 width: 100%;
             }
 
+            /* Stats Section - 2 Columns on Mobile */
+            .stats-grid { 
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 10px; 
+            }
+            .stat-card { flex-direction: column; text-align: center; padding: 15px; gap: 10px; }
+            .stat-icon { margin: 0 auto; width: 40px; height: 40px; font-size: 18px; }
+            .stat-text h3 { font-size: 1rem; }
+            .stat-text small { font-size: 11px; }
+
+            /* How It Works - 2 Columns on Mobile */
+            .steps-container { 
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 10px; 
+            }
+            .step-item { min-width: 0; padding: 20px 10px; }
+            .step-logo { width: 20px; top: 10px; left: 10px; }
+            .step-icon { width: 40px; height: 40px; font-size: 18px; margin-bottom: 10px; }
+            .step-item h4 { font-size: 1rem; margin-bottom: 5px; }
+            .step-item p { font-size: 0.8rem; line-height: 1.2; }
+
             /* Reviews Section - 2 Columns on Mobile */
             .reviews-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .review-card { padding: 15px; }
@@ -817,6 +846,62 @@
             .user-avatar { width: 30px; height: 30px; margin-right: 8px; }
             .review-card h4 { font-size: 0.8rem; }
             .review-card small { font-size: 0.7rem; }
+
+            /* Owner Section - 2 Columns on Mobile */
+            .owner-section { 
+                display: grid; 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 10px; 
+                padding: 40px 10px;
+            }
+            .owner-card { 
+                min-width: 0; 
+                padding: 15px !important; 
+                width: 100%;
+            }
+            .profile-img { 
+                width: 80px; 
+                height: 80px; 
+                border-width: 2px;
+                margin-bottom: 10px;
+            }
+            .owner-card h3 { font-size: 0.9rem !important; }
+            .owner-card p { font-size: 0.75rem !important; }
+            
+            /* Instagram Card Adjustments */
+            .owner-card > div[style*="display: flex"] {
+                flex-direction: column;
+                gap: 5px !important;
+                text-align: center;
+                margin-bottom: 10px !important;
+            }
+            .owner-card > div[style*="display: flex"] img {
+                width: 50px !important;
+                height: 50px !important;
+            }
+            
+            /* WhatsApp Box - Full Width */
+            .whatsapp-box { 
+                grid-column: 1 / -1; 
+                width: 100%;
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            .whatsapp-box h2 { font-size: 1.5rem !important; }
+            .whatsapp-btn-large { font-size: 1rem; padding: 12px; width: 100%; justify-content: center; }
+
+            /* Partner Section Mobile */
+            .partner-section { padding: 40px 15px !important; }
+            .partner-section h2 { font-size: 1.8rem !important; margin-bottom: 25px !important; }
+            .partner-section .owner-card { width: 100% !important; max-width: 100% !important; padding: 20px !important; }
+            .partner-section .owner-card > div[style*="display: flex"] {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px !important;
+            }
+            .partner-section .owner-card img {
+                margin: 0 auto;
+            }
         }
 
         /* --- FLOATING SOCIALS --- */
@@ -1113,7 +1198,7 @@
     </header>
 
     <section class="hero">
-        <video autoplay muted loop playsinline>
+        <video autoplay muted loop playsinline webkit-playsinline preload="auto">
             <source src="https://dynamic-bronze-9ksors8jp8-f5gu13ogjr.edgeone.dev/vehicle%20video%201.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
@@ -1692,7 +1777,7 @@
                         <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
                             <h4>Office Address</h4>
-                            <p>Shiridi sai nagar, Shiridhi Sai Nagar, Chandhrayyaya Colony, Balaga, Srikakulam, Andhra Pradesh 532001</p>
+                            <p>Shiridi sai nagar, Balaga, Srikakulam, Andhra Pradesh 532001</p>
                         </div>
                     </div>
                     <div class="contact-row">
