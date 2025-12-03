@@ -981,11 +981,11 @@
         .contact-details {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 30px;
         }
         .contact-row {
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Align top for multi-line text */
             gap: 20px;
         }
         .icon-box {
@@ -997,18 +997,21 @@
             align-items: center;
             justify-content: center;
             color: var(--accent-gold);
-            font-size: 18px;
+            font-size: 20px;
             border: 1px solid #333;
+            flex-shrink: 0; /* Prevent shrinking */
         }
         .contact-row h4 {
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 5px;
             color: #fff;
+            font-weight: 700;
         }
         .contact-row p {
-            color: #888;
+            color: #aaa;
             font-size: 14px;
             margin: 0;
+            line-height: 1.6;
         }
 
         /* Footer Bottom */
@@ -1108,6 +1111,117 @@
         .rating-input i.fas {
             color: orange;
         }
+
+        /* --- NEW REVIEWS SECTION CSS --- */
+        /* Grid Container */
+        .review-container {
+            display: grid;
+            /* This creates a 3-column grid that automatically adjusts */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto; /* Centering the container */
+            padding: 40px 20px;
+        }
+
+        /* Individual Card Styling */
+        .review-card {
+            background-color: #0a0a0a; /* Slightly lighter than body */
+            border: 1px solid #222;    /* Subtle border */
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 180px;
+            transition: transform 0.2s ease;
+        }
+
+        /* Hover effect (optional) */
+        .review-card:hover {
+            border-color: #444;
+        }
+
+        /* The Highlighted Card (White Border) */
+        .review-card.highlight {
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+        }
+
+        /* Star Rating */
+        .stars {
+            color: #ffffff;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        /* Review Text */
+        .review-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #e0e0e0;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        /* User Info Section (Bottom) */
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto; /* Pushes this section to the bottom */
+        }
+
+        /* Avatar Image */
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Letter Avatars (if no image) */
+        .avatar.initial {
+            background-color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            border: 1px solid #333;
+        }
+
+        /* Colored Letter Avatars */
+        .avatar.initial.orange {
+            background-color: #c0392b;
+            border: none;
+        }
+        .avatar.initial.pink {
+            background-color: #c2185b;
+            border: none;
+        }
+
+        /* User Details Text */
+        .user-details h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .user-details span {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .review-container {
+                grid-template-columns: 1fr; /* 1 column on mobile */
+            }
+        }
     </style>
 </head>
 <body>
@@ -1127,7 +1241,7 @@
 
     <section class="hero">
         <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-            <source src="https://dynamic-bronze-9ksors8jp8-f5gu13ogjr.edgeone.dev/vehicle%20video%201.mp4" type="video/mp4">
+            <source src="https://www.pexels.com/download/video/6438320/" type="video/mp4">
         </video>
         <div class="hero-content">
             <h1>IGNITE<br>WHEELS<br>CAR RENTALS</h1>
@@ -1634,57 +1748,107 @@
 
 
     <!-- Reviews Section -->
-    <section class="reviews-section">
-        <h2 style="font-size: 3rem; margin-bottom: 10px;">What Our <span style="color:var(--accent-yellow)">Clients Say</span></h2>
-        <p style="color:gray;">Real experiences from our valued customers</p>
+    <section class="review-container">
         
-        <div class="reviews-grid">
-            <!-- Reviews will be loaded dynamically -->
-        </div>
-
-        <div class="review-buttons" style="display: flex; justify-content: center; gap: 20px; margin-top: 40px; flex-wrap: wrap;">
-            <a href="https://maps.app.goo.gl/ciSbvABYoKvVNr1x5" target="_blank" style="padding: 15px 30px; background: var(--accent-red); color: white; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 10px; text-decoration: none;">
-                <i class="fas fa-pen"></i> Write a Review
-            </a>
-            
-            <a href="https://maps.app.goo.gl/ciSbvABYoKvVNr1x5" target="_blank" style="padding: 15px 30px; background: white; color: black; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 10px;">
-                <i class="fas fa-map-marked-alt" style="color: #EA4335; font-size: 20px;"></i> Review on Google Maps
-            </a>
-        </div>
-
-        <!-- Review Modal -->
-        <div id="reviewModal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <h3 style="color: var(--accent-gold); margin-bottom: 20px;">Rate Your Experience</h3>
-                <form id="reviewForm">
-                    <input type="text" id="reviewerName" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-bottom: 15px; background: #222; border: 1px solid #444; color: white; border-radius: 5px;">
-                    <input type="text" id="reviewerLocation" placeholder="Your Location (e.g. Srikakulam)" required style="width: 100%; padding: 10px; margin-bottom: 15px; background: #222; border: 1px solid #444; color: white; border-radius: 5px;">
-                    <div class="rating-input" style="margin-bottom: 15px; font-size: 24px; color: #444; cursor: pointer;">
-                        <i class="far fa-star" data-value="1"></i>
-                        <i class="far fa-star" data-value="2"></i>
-                        <i class="far fa-star" data-value="3"></i>
-                        <i class="far fa-star" data-value="4"></i>
-                        <i class="far fa-star" data-value="5"></i>
-                    </div>
-                    <input type="hidden" id="ratingValue" required>
-                    <textarea id="reviewText" placeholder="Your Review" rows="4" required style="width: 100%; padding: 10px; margin-bottom: 15px; background: #222; border: 1px solid #444; color: white; border-radius: 5px;"></textarea>
-                    <button type="submit" style="width: 100%; padding: 12px; background: var(--accent-gold); color: black; border: none; font-weight: bold; border-radius: 5px; cursor: pointer;">Submit Review</button>
-                </form>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Very good condition car"</p>
+            <div class="user-info">
+                <div class="user-details">
+                    <h4>P K</h4>
+                    <span>4 months ago</span>
+                </div>
             </div>
         </div>
 
-        <!-- Offers Modal -->
-        <div id="offersModal" class="modal">
-            <div class="modal-content" style="text-align: center; position: relative;">
-                <span class="close-offers-modal" style="position: absolute; top: 10px; right: 20px; font-size: 28px; cursor: pointer; color: #aaa;">&times;</span>
-                <h3 style="color: var(--accent-gold); margin-bottom: 20px; font-size: 24px;">Exclusive Offers</h3>
-                <p style="color: white; margin-bottom: 30px; font-size: 16px;">Offers will be shown once they are available.</p>
-                <a href="#fleets" id="exploreFleetBtn" style="display: inline-block; padding: 12px 30px; background: var(--accent-red); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s;">
-                    Explore the Fleet
-                </a>
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Good service and well maintained cars"</p>
+            <div class="user-info">
+                <div class="user-details">
+                    <h4>Vishnu Kuna</h4>
+                    <span>4 months ago</span>
+                </div>
             </div>
         </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Less prices 👍 Well maintained & wide range of cars available with them 🎆 ..."</p>
+            <div class="user-info">
+                <div class="user-details">
+                    <h4>Unkili Eswarprasad</h4>
+                    <span>4 months ago</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Nice ride... Clean and nice cars... Friendly driver... Best service... Awesome experience..."</p>
+            <div class="user-info">
+                <div class="user-details">
+                    <h4>SYED NAZIA JAMAL AHMED</h4>
+                    <span>4 months ago</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"good service providing New cars & Neat and clean"</p>
+            <div class="user-info">
+                <div class="user-details">
+                    <h4>Adarsh Misra</h4>
+                    <span>4 months ago</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Very good person asif bhai"</p>
+            <div class="user-info">
+                <div class="user-details">
+                    <h4>MUSTAK Ali 9 (MUSTAK king)</h4>
+                    <span>4 months ago</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Very nice"</p>
+            <div class="user-info">
+                <div class="user-details">
+                    <h4>Bhavana Balaga</h4>
+                    <span>3 months ago</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Very good service"</p>
+            <div class="user-info">
+                <div class="user-details">
+                    <h4>Lenkavalasa Sankararao</h4>
+                    <span>4 months ago</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">"Good service"</p>
+            <div class="user-info">
+                <div class="user-details">
+                    <h4>Kota ganesh Vasa</h4>
+                    <span>4 months ago</span>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <footer class="new-footer">
