@@ -1223,6 +1223,59 @@
                 grid-template-columns: 1fr; /* 1 column on mobile */
             }
         }
+
+        .modern-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px; /* Space between elements */
+            font-size: 14px;
+            color: #aaa;
+            flex-wrap: wrap; /* Wraps on small screens */
+            margin-top: 20px;
+        }
+
+        .divider {
+            height: 15px;
+            width: 1px;
+            background-color: #555; /* Vertical line separator */
+        }
+
+        .heart {
+            color: #e25555; /* Red heart */
+            font-size: 1.2em;
+            vertical-align: middle;
+        }
+
+        .company-name {
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .google-maps-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+        .google-maps-btn i {
+            font-size: 1.2rem;
+            color: #4285F4; /* Google Blue */
+        }
+        .google-maps-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+            background: #f0f0f0;
+        }
     </style>
 </head>
 <body>
@@ -1749,7 +1802,11 @@
 
 
     <!-- Reviews Section -->
-    <section class="review-container">
+    <section class="google-reviews-section" style="padding: 60px 5%;">
+        <div class="section-title" style="text-align: center; margin-bottom: 40px;">
+            <h2 style="font-size: 2.5rem; text-transform: uppercase;"><span style="background: linear-gradient(90deg, var(--accent-red), var(--accent-gold), #ffffff, var(--accent-gold), var(--accent-red)); background-size: 200% auto; color: transparent; -webkit-background-clip: text; background-clip: text; animation: brandShine 3s linear infinite;">RATINGS AND REVIEWS</span> ON <span style="color: #335663;">GOOGLE MAPS</span></h2>
+        </div>
+        <div class="review-container">
         
         <div class="review-card">
             <div class="stars">★★★★★</div>
@@ -1850,6 +1907,14 @@
             </div>
         </div>
 
+        </div> <!-- End of review-container grid -->
+
+        <div class="google-maps-btn-container" style="text-align: center; margin-top: 50px;">
+            <a href="https://www.google.com/maps/place/Ignite+Wheels+Self+Drive+Cars+Srikakulam/@18.3093863,83.8846653,17z/data=!4m8!3m7!1s0x3a3c15004d68607d:0x500c050000000000!8m2!3d18.3093863!4d83.8846653!9m1!1b1!16s%2Fg%2F11y3_00000?entry=ttu" target="_blank" class="google-maps-btn">
+                <i class="fas fa-map-marked-alt"></i> SEE REVIEWS ON GOOGLE MAPS
+            </a>
+        </div>
+
     </section>
 
     <footer class="new-footer">
@@ -1927,12 +1992,13 @@
                 </a>
                 <i class="fab fa-pinterest"></i>
             </div>
-            <div class="footer-copyright">
-                Copyrighd Developed by VYNTYRA CONSULTANCY SERVICES Pvt.Ltd. 
-                 <div class="footer-copyright">
-                All Right Reserved.
-            </div>
-            </div>
+            <div class="modern-footer">
+                <p>Copyright &copy; 2025 <strong>Ignite Wheels</strong>.</p>
+                <div class="divider"></div>
+                <p class="made-by">
+                    Designed & Developed with <span class="heart">❤</span> by 
+                    <span class="company-name">VYNTYRA CONSULTANCY SERVICES Pvt.Ltd.</span>
+                </p>
             </div>
         </div>
     </footer>
