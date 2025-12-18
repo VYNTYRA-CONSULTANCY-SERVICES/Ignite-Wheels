@@ -28,9 +28,64 @@
             width:100%;
             padding:40px;
             background:rgba(10,10,10,0.7);
-            border:1px solid rgba(255,255,255,0.1);
             border-radius:20px;
             box-shadow:0 20px 60px rgba(0,0,0,0.8);
+            position:relative;
+            overflow:hidden;
+        }
+        .panel::before {
+            content:'';
+            position:absolute;
+            inset:0;
+            padding:2px;
+            background:linear-gradient(135deg,var(--accent),#fff,#C5A059,var(--accent));
+            border-radius:20px;
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            mask-composite: exclude;
+            animation: pulse 2.8s linear infinite;
+        }
+        .panel::after {
+            content:'';
+            position:absolute;
+            inset:2px;
+            border-radius:18px;
+            background:rgba(5,5,5,0.8);
+            z-index:1;
+        }
+        .panel-content {
+            position:relative;
+            z-index:2;
+        }
+        .panel::before {
+            content:'';
+            position:absolute;
+            inset:0;
+            padding:2px;
+            background:linear-gradient(135deg,var(--accent),#fff,#C5A059,var(--accent));
+            border-radius:20px;
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            mask-composite: exclude;
+            animation: pulse 2.8s linear infinite;
+        }
+        .panel::after {
+            content:'';
+            position:absolute;
+            inset:2px;
+            border-radius:18px;
+            background:rgba(5,5,5,0.8);
+            z-index:1;
         }
         .logo{
             width:70px;
@@ -66,10 +121,16 @@
             body{padding:20px;}
             .panel{padding:30px;}
         }
+        @keyframes pulse {
+            0% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(45deg); }
+            100% { filter: hue-rotate(0deg); }
+        }
     </style>
 </head>
 <body>
     <div class="panel">
+        <div class="panel-content">
         <img src="logo.png" alt="Ignite Wheels" class="logo" loading="lazy">
         <div class="brand">Ignite Wheels</div>
         <h1>Temporarily Out of Service</h1>
@@ -77,6 +138,7 @@
         <p>For any enquiries, please drop us a line and we will respond as quickly as possible.</p>
         <div class="email">
             <span>enquiry.vyntyraconsultancyservices@outlook.com</span>
+        </div>
         </div>
     </div>
 </body>
