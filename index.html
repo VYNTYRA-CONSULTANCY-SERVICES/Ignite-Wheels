@@ -25,7 +25,151 @@
             --text-white: #ffffff;
             --text-gray: #b0b0b0; /* Improved contrast from #888888 */
             --glass-bg: rgba(0, 0, 0, 0.8);
+        }<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ignite Wheels | Temporarily Out of Service</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        :root {
+            --bg:#050505;
+            --text:#f4f4f4;
+            --accent:#D2042D;
+            font-family:'Poppins',sans-serif;
         }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{
+            min-height:100vh;
+            background:linear-gradient(135deg,#050505,#151515 60%);
+            color:var(--text);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:40px;
+            text-align:center;
+        }
+        .panel{
+            max-width:520px;
+            width:100%;
+            padding:40px;
+            background:rgba(10,10,10,0.7);
+            border-radius:20px;
+            box-shadow:0 20px 60px rgba(0,0,0,0.8);
+            position:relative;
+            overflow:hidden;
+        }
+        .panel::before {
+            content:'';
+            position:absolute;
+            inset:0;
+            padding:2px;
+            background:linear-gradient(135deg,var(--accent),#fff,#C5A059,var(--accent));
+            border-radius:20px;
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            mask-composite: exclude;
+            animation: pulse 2.8s linear infinite;
+        }
+        .panel::after {
+            content:'';
+            position:absolute;
+            inset:2px;
+            border-radius:18px;
+            background:rgba(5,5,5,0.8);
+            z-index:1;
+        }
+        .panel-content {
+            position:relative;
+            z-index:2;
+        }
+        .panel::before {
+            content:'';
+            position:absolute;
+            inset:0;
+            padding:2px;
+            background:linear-gradient(135deg,var(--accent),#fff,#C5A059,var(--accent));
+            border-radius:20px;
+            -webkit-mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask:
+                linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+            mask-composite: exclude;
+            animation: pulse 2.8s linear infinite;
+        }
+        .panel::after {
+            content:'';
+            position:absolute;
+            inset:2px;
+            border-radius:18px;
+            background:rgba(5,5,5,0.8);
+            z-index:1;
+        }
+        .logo{
+            width:70px;
+            height:auto;
+            margin:0 auto 20px;
+        }
+        h1{
+            font-size:2rem;
+            letter-spacing:2px;
+            margin-bottom:10px;
+        }
+        .brand{
+            font-size:1rem;
+            letter-spacing:4px;
+            text-transform:uppercase;
+            color:var(--accent);
+            margin-bottom:30px;
+        }
+        p{
+            color:#cfcfcf;
+            margin-bottom:10px;
+            line-height:1.6;
+        }
+        .email{
+            margin-top:25px;
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            font-weight:600;
+            color:var(--accent);
+        }
+        @media (max-width:600px){
+            body{padding:20px;}
+            .panel{padding:30px;}
+        }
+        @keyframes pulse {
+            0% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(45deg); }
+            100% { filter: hue-rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <div class="panel-content">
+        <img src="logo.png" alt="Ignite Wheels" class="logo" loading="lazy">
+        <div class="brand">Ignite Wheels</div>
+        <h1>Temporarily Out of Service</h1>
+        <p>We are updating and will be back soon with the same premium self-drive experience within few days.</p>
+        <p>For any enquiries, please drop us a line and we will respond as quickly as possible.</p>
+        <div class="email">
+            <span>enquiry.vyntyraconsultancyservices@outlook.com</span>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--primary-black); color: var(--text-white); overflow-x: hidden; }
@@ -2187,5 +2331,6 @@
     </script>
 </body>
 </html>
+
 
 
